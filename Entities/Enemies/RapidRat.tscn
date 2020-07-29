@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Entities/Enemies/RapidRat.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Enemies/Slashem.png" type="Texture" id=2]
+[ext_resource path="res://Sound/PHs/bustmetal1.wav" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=22]
+resource_name = "Be"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 20 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 20 ]
+}
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 6.74564, 4.65879 )
+
+[sub_resource type="CapsuleShape2D" id=20]
+radius = 5.7467
+height = 12.1942
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 10, 6.7072 )
+
+[node name="RapidRat" type="KinematicBody2D" groups=[
+"enemy",
+"bouncy",
+]]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Be = SubResource( 22 )
+anims/Hit = SubResource( 23 )
+
+[node name="SeeEmCast" type="RayCast2D" parent="."]
+position = Vector2( -2, 17 )
+enabled = true
+cast_to = Vector2( 300, 0 )
+collision_mask = 5
+
+[node name="SeeEmCast2" type="RayCast2D" parent="."]
+position = Vector2( -2, 17 )
+enabled = true
+cast_to = Vector2( -300, 0 )
+collision_mask = 5
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 17 )
+texture = ExtResource( 2 )
+vframes = 27
+hframes = 10
+frame = 20
+
+[node name="HoleRay" type="RayCast2D" parent="."]
+position = Vector2( 17.0555, 23.8511 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+
+[node name="WallRay" type="RayCast2D" parent="."]
+position = Vector2( 17.0555, 14.8511 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.57341, 16.3426 )
+shape = SubResource( 18 )
+
+[node name="HitEmArea" type="Area2D" parent="."]
+position = Vector2( -558.147, -34.6389 )
+
+[node name="HitEmCol" type="CollisionShape2D" parent="HitEmArea"]
+position = Vector2( 556.468, 50.9923 )
+rotation = 1.5708
+shape = SubResource( 20 )
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="HurtBox" type="CollisionShape2D" parent="HitArea"]
+position = Vector2( -1.85114, 20.4046 )
+shape = SubResource( 24 )
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+[connection signal="body_entered" from="HitEmArea" to="." method="_on_HitEmArea_body_entered"]
+[connection signal="body_exited" from="HitEmArea" to="." method="_on_HitEmArea_body_exited"]

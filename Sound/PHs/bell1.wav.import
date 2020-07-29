@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bell1.wav-5112a4d25eacc4875fa8607b8886f7ee.sample"
+
+[deps]
+
+source_file="res://Sound/PHs/bell1.wav"
+dest_files=[ "res://.import/bell1.wav-5112a4d25eacc4875fa8607b8886f7ee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

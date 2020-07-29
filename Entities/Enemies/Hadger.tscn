@@ -1,0 +1,241 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Entities/Enemies/Hadger.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Enemies/Hadger.png" type="Texture" id=2]
+[ext_resource path="res://Sound/PHs/bustmetal1.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sound/PHs/pl_step2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sound/PHs/pl_step4.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sound/PHs/Jump.wav" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Jump"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Walk"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:Isaw")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 1 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stopmovingidiot"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:state")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 4.05292, 13.6567 )
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 6.91534
+height = 10.7989
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 13.5243
+
+[node name="Hadger" type="KinematicBody2D" groups=[
+"enemy",
+"bouncy",
+]]
+collision_layer = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SeeEmCast" type="RayCast2D" parent="."]
+position = Vector2( -2, 0 )
+enabled = true
+collision_mask = 5
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hit = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/IdleIDK = SubResource( 3 )
+anims/Jump = SubResource( 4 )
+anims/Walk = SubResource( 5 )
+
+[node name="GiveUpTimer" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/LIDLBrandTimer = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.57341, 7.34262 )
+shape = SubResource( 7 )
+
+[node name="HitEmArea" type="Area2D" parent="."]
+position = Vector2( -558.147, -34.6389 )
+
+[node name="HitEmCol" type="CollisionShape2D" parent="HitEmArea"]
+position = Vector2( 556.468, 41.9923 )
+shape = SubResource( 8 )
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="HurtBox" type="CollisionShape2D" parent="HitArea"]
+position = Vector2( -1.85114, 7.40458 )
+shape = SubResource( 9 )
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Step1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+max_distance = 300.0
+
+[node name="Step2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+max_distance = 300.0
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+max_distance = 300.0
+[connection signal="body_entered" from="HitEmArea" to="." method="_on_HitEmArea_body_entered"]
+[connection signal="body_exited" from="HitEmArea" to="." method="_on_HitEmArea_body_exited"]

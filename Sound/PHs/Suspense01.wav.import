@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Suspense01.wav-c805dd65e5b480c21d723eb75c8f2250.sample"
+
+[deps]
+
+source_file="res://Sound/PHs/Suspense01.wav"
+dest_files=[ "res://.import/Suspense01.wav-c805dd65e5b480c21d723eb75c8f2250.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

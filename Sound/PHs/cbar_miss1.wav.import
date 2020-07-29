@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cbar_miss1.wav-b1fbdd6d814bb10db7f6881230d0b938.sample"
+
+[deps]
+
+source_file="res://Sound/PHs/cbar_miss1.wav"
+dest_files=[ "res://.import/cbar_miss1.wav-b1fbdd6d814bb10db7f6881230d0b938.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

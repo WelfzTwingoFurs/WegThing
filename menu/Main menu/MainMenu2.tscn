@@ -1,0 +1,206 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://menu/Main menu/AnimationPlayer.gd" type="Script" id=1]
+[ext_resource path="res://menu/Main menu/wow!.png" type="Texture" id=2]
+[ext_resource path="res://menu/Main menu/welcome.png" type="Texture" id=3]
+[ext_resource path="res://menu/Main menu/levelztest.png" type="Texture" id=4]
+[ext_resource path="res://menu/Main menu/levelzlevels.png" type="Texture" id=5]
+[ext_resource path="res://menu/Main menu/levelzgeorge.png" type="Texture" id=6]
+[ext_resource path="res://menu/Main menu/Selector.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menu/Main menu/LevelIcon.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hello"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("GRAFX/Background2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 5.46416, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 161 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 262, 10 )
+
+[node name="Main menu" type="Node2D"]
+rotation = 6.28319
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+anims/hello = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Insane!!!" type="Label" parent="."]
+margin_left = 568.0
+margin_top = -84.0003
+margin_right = 623.0
+margin_bottom = -19.0003
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+text = "Wow!!
+What
+a big
+monitor!"
+
+[node name="GRAFX" type="Node2D" parent="."]
+position = Vector2( -1, 4.46638e-006 )
+
+[node name="Background3" type="Sprite" parent="GRAFX"]
+position = Vector2( 48, -0.000214323 )
+texture = ExtResource( 2 )
+
+[node name="Background4" type="Sprite" parent="GRAFX"]
+position = Vector2( -51, 0.000227849 )
+texture = ExtResource( 2 )
+
+[node name="Background" type="Sprite" parent="GRAFX"]
+position = Vector2( -3, 1.34627e-005 )
+texture = ExtResource( 2 )
+
+[node name="InfoRes" type="Label" parent="GRAFX"]
+margin_left = -51.0
+margin_top = -69.0
+margin_right = 226.0
+margin_bottom = 10.0
+custom_constants/line_spacing = 0
+text = "Hold BACKSPACE, then
+press CTRL+1, then
+CTRL+2 to adjust
+your screen, please."
+align = 2
+
+[node name="Info" type="Label" parent="GRAFX"]
+margin_left = 77.0003
+margin_top = 15.0
+margin_right = 225.0
+margin_bottom = 141.0
+custom_constants/line_spacing = 0
+text = "WASD - Movement
+UP - Jump
+RIGHT - Kick
+LEFT - Item
+CTRL - Change Item
+ESC - Pause Menu
+G - Cheat/Revive
+ENTER - Select level"
+align = 2
+
+[node name="Welcome" type="Sprite" parent="GRAFX"]
+position = Vector2( 2, -103.068 )
+texture = ExtResource( 3 )
+
+[node name="TTest" type="Label" parent="GRAFX"]
+modulate = Color( 1, 0, 1, 1 )
+self_modulate = Color( 1, 0, 1, 1 )
+margin_left = -227.0
+margin_top = -100.999
+margin_right = 2.99951
+margin_bottom = -86.999
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Test Levels"
+
+[node name="Test" type="Sprite" parent="GRAFX"]
+position = Vector2( -124, -65.9995 )
+texture = ExtResource( 4 )
+
+[node name="TLevels" type="Label" parent="GRAFX"]
+modulate = Color( 0.992157, 1, 0, 1 )
+self_modulate = Color( 1, 1, 0, 1 )
+margin_left = -226.0
+margin_top = -32.999
+margin_right = 3.99982
+margin_bottom = -18.999
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Actual levels"
+
+[node name="Levels" type="Sprite" parent="GRAFX"]
+position = Vector2( -124, 2.00058 )
+texture = ExtResource( 5 )
+
+[node name="TGeorge" type="Label" parent="GRAFX"]
+modulate = Color( 0.611765, 0.552941, 0.0156863, 1 )
+margin_left = -227.0
+margin_top = 35.001
+margin_right = 3.00012
+margin_bottom = 49.001
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "George's Turn; joke campaign"
+
+[node name="George" type="Sprite" parent="GRAFX"]
+position = Vector2( -124, 70.0006 )
+texture = ExtResource( 6 )
+
+[node name="Background2" type="Sprite" parent="GRAFX"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -2.99985, 34 )
+texture = ExtResource( 2 )
+
+[node name="Selector" parent="." instance=ExtResource( 7 )]
+position = Vector2( -172.999, 121.001 )
+
+[node name="WALLS" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -172.999, 122.001 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS"]
+position = Vector2( -75.001, -122 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WALLS"]
+position = Vector2( 420.999, -122.002 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WALLS"]
+position = Vector2( 172, 29.999 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WALLS"]
+position = Vector2( 172.998, -272.001 )
+shape = SubResource( 3 )
+
+[node name="ThisThing" parent="." instance=ExtResource( 8 )]
+position = Vector2( -193, -65.9991 )
+scale = Vector2( 3.32, 2.08 )
+thisscene = "res://Levels/This thing.tscn"
+
+[node name="Level2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -125, -65.9996 )
+scale = Vector2( 3.32, 2.08 )
+thisscene = "res://Levels/Level 2.tscn"
+
+[node name="Level1" parent="." instance=ExtResource( 8 )]
+position = Vector2( -193, 2.00089 )
+scale = Vector2( 3.32, 2.08 )
+thisscene = "res://Levels/Level 1.tscn"
+
+[node name="Factory" parent="." instance=ExtResource( 8 )]
+position = Vector2( -125, 2.0004 )
+scale = Vector2( 3.32, 2.08 )
+thisscene = "res://Levels/Factory.tscn"
+
+[node name="George1" parent="." instance=ExtResource( 8 )]
+position = Vector2( -193, 70.0009 )
+scale = Vector2( 3.32, 2.08 )
+thisscene = "res://Levels/Georgesturn/Georgesturn1.tscn"
+
+[node name="George2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -125, 70.0004 )
+scale = Vector2( 3.32, 2.08 )
+thisscene = "res://Levels/Georgesturn/Georgesturn2.tscn"
+
+[node name="George3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -54.9999, 69.9999 )
+scale = Vector2( 3.32, 2.08 )
+thisscene = "res://Levels/Georgesturn/Georgesturn3.tscn"

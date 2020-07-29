@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Swing.wav-0a0c1cf53187d4b6c9836fc6ab417ee5.sample"
+
+[deps]
+
+source_file="res://Graphics/Sounds/Slashem/Swing.wav"
+dest_files=[ "res://.import/Swing.wav-0a0c1cf53187d4b6c9836fc6ab417ee5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

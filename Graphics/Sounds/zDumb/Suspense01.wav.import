@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Suspense01.wav-bbdd46f84c9cababa460f109e528f6a2.sample"
+
+[deps]
+
+source_file="res://Graphics/Sounds/zDumb/Suspense01.wav"
+dest_files=[ "res://.import/Suspense01.wav-bbdd46f84c9cababa460f109e528f6a2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

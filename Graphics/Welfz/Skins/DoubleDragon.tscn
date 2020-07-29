@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Graphics/Welfz/Skins/DoubleDragon.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Welfz/Skins/WFZDoubleDragon.png" type="Texture" id=2]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.8908, 11.7563 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13.0845, 13.1355 )
+
+[node name="DoubleDragon" type="KinematicBody2D"]
+position = Vector2( 296.088, -30.9225 )
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5867, 7.70727 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 12
+hframes = 10
+
+[node name="Area" type="Area2D" parent="."]
+position = Vector2( 4, -5 )
+
+[node name="AreaCol" type="CollisionShape2D" parent="Area"]
+position = Vector2( -4.55667, 11.547 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

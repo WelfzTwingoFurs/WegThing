@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/siren.wav-ca8fd9ea2ff2de613200200293946f42.sample"
+
+[deps]
+
+source_file="res://Sound/PHs/siren.wav"
+dest_files=[ "res://.import/siren.wav-ca8fd9ea2ff2de613200200293946f42.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

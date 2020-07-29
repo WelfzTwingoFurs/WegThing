@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Graphics/Welfz/Skins/2600.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Welfz/Skins/WFZ2600.png" type="Texture" id=2]
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12.0342, 11.9617 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13.1339, 12.6976 )
+
+[node name="2600" type="KinematicBody2D"]
+position = Vector2( -290.311, -142.072 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.39569, 7.36105 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 12
+hframes = 10
+
+[node name="Area" type="Area2D" parent="."]
+position = Vector2( 16.0103, -4.7847 )
+
+[node name="AreaCol" type="CollisionShape2D" parent="Area"]
+position = Vector2( -15.6408, 11.171 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

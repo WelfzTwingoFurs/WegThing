@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Spin.wav-80bd3ada0bec9b4149fff2f6615cb25f.sample"
+
+[deps]
+
+source_file="res://Sound/PHs/Spin.wav"
+dest_files=[ "res://.import/Spin.wav-80bd3ada0bec9b4149fff2f6615cb25f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/NICE.wav-c31aa9fe9998bc71a7d8a0ab0414d631.sample"
+
+[deps]
+
+source_file="res://Sound/PHs/NICE.wav"
+dest_files=[ "res://.import/NICE.wav-c31aa9fe9998bc71a7d8a0ab0414d631.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Step4.wav-7dc27cb91e528b510657258d403e269a.sample"
+
+[deps]
+
+source_file="res://Sound/SFX/Sound/Step4.wav"
+dest_files=[ "res://.import/Step4.wav-7dc27cb91e528b510657258d403e269a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

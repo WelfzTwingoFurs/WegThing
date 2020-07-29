@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Entities/Enemies/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Enemies/,WalkySprites.png" type="Texture" id=2]
+
+
+
+
+
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hit"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer:playback_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.7 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4.05292, 12.056 )
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 6.91534
+height = 10.7989
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 13.5243
+
+[node name="N M E" type="KinematicBody2D" groups=[
+"box",
+"hurts",
+]]
+position = Vector2( 779.26, 151.061 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 3
+hframes = 4
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 1.5
+anims/Fall = SubResource( 1 )
+anims/Hit = SubResource( 2 )
+anims/Walky = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.57341, 7.34262 )
+shape = SubResource( 4 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 2, 0 )
+enabled = true
+cast_to = Vector2( 0, 21 )
+collide_with_areas = true
+
+[node name="HitEmArea" type="Area2D" parent="."]
+position = Vector2( -558.147, -34.6389 )
+
+[node name="HitEmCol" type="CollisionShape2D" parent="HitEmArea"]
+position = Vector2( 556.468, 41.9923 )
+shape = SubResource( 5 )
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="HurtBox" type="CollisionShape2D" parent="HitArea"]
+position = Vector2( -1.85114, 7.40458 )
+shape = SubResource( 6 )
+[connection signal="body_entered" from="HitEmArea" to="." method="_on_HitEmArea_body_entered"]

@@ -1,0 +1,776 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Entities/Enemies/Slashem.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Enemies/Slashem.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "AirSwing"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:ouch")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer:playback_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:busy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stopmovingidiot"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SwordArea/SwordCol:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "DownStab"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 40 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:ouch")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Draw"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:ouch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stopmovingidiot"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer:playback_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:state")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:Isee")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SeeEmCast:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Fall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 32 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:ouch")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer:playback_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 41 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:ouch")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:busy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SwordArea/SwordCol:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SeeEmCast:enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Holster"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:ouch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stopmovingidiot"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer:playback_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:state")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SeeEmCast:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:ouch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stopmovingidiot"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SlideTime:autostart")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:ouch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stopmovingidiot"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SlideTime:autostart")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:ouch")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stopmovingidiot"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 30 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:ouch")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "Slide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 40 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:ouch")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer:playback_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 4.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:busy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "stopmovingidiot"
+}, {
+"args": [  ],
+"method": "nyooomm"
+}, {
+"args": [  ],
+"method": "stopmovingidiot"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SwordArea/SwordCol:disabled")
+tracks/Ÿ’˘ °c◊   2pé[  @                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <ù ºõB.ñ˜ÈQ≈ÿ6-
+‡
+j	˙	∞	0¬Eæ5ºe˙gƒâMMM                                                                                                                                                                                                                                                 õ á                 õ rõ n                                                                                                          p9 ue	https://www.spriters-resource.com/snes/mortalkombat/SNES - Mortal Kombat - The Spriters Resource .˚È„vª{Ç&
+ ÅÉ'https://twitter.com/calvinstowell/status/1108031478364033025Calvin no Twitter: "anyways look at cute photos of my dog from this weekend, he was born with a disorder called iris hypoplasia so he has to wear doggles when it‚Äôs sunny out‚Ä¶ https://t.co/hL3QUkkqxW" . .¯Oı≠◊":B chttps://www.youtube.com/watch?v=5lG297kZaQsYouTubeeA cqhttps://www.youtube.com/watch?v=00I5q_0dgsE(1) Lost Sonic 2 Music Track Discovered! - YouTubeÅ&@
+ ÅEÅhttps://www.youtube.com/watch?v=-dDtKCODRbA&list=PLiaoEf_BsHhpBirqPjoxwOsN8up24gzn-&index=13Ordering Western Food - Wii Food Service Channel Music - YouTube // '                                   1? =https://www.youtube.com/YouTube  .˝Jÿ,HÉ6) Yhttps://u18chan.com/gfur/topic/1291338U-18ChanÀ    /. ;https://www.google.com/Google œ .˝L ±Å>
+ ÅÅ	https://www.xtube.com/video-watch/mhwap-rowen-sample-extraction-29670031MHWAP: Rowen - Sample Extraction | XTube Porn Video from MHWAPi< {ahttps://www.xtube.com/profile/nymaster2-57994801#videosNYMaster2's Profile Activities - Xtube.comd;	 ÅAhttps://www.weasyl.com/~khato/submissions/1271858/zx-spectrum-artZX Spectrum Art ‚Äî Weasylß j                                                                                                      Å8	 Å}https://www.spriters-resource.com/nes/mortalkombatiibootleg/#commentsNES - Mortal Kombat II (Bootleg) - The Spriters ResourceÅ7
+ ÅÅhttps://www.spriters-resource.com/genesis_32x_scd/mortalkombat/Genesis / 32X / SCD - Mortal Kombat - The Spriters Resource{6	 Åyhttps://www.spriters-resource.com/game_boy_gbc/mortalkombat/Game Boy / GBC - Mortal Kombat - The Spriters Resourcel5 wkhttps://www.spriters-resource.com/arcade/streetfight/Arcade - Street Fighter - The Spriters Resource~4	 Åuhttps://www.spriters-resource.com/arcade/ninjakazan/sheet/104748/Arcade - Ninja Kazan - Kazan - The Spriters ResourceH3 Q7https://www.spriters-resource.com/The Spriters Resourcej .˝"Î’jn2	 ÅUhttps://www.roblox.com/games/579211007/Stapleton-County-FirestoneStapleton County, Firestone - Robloxt1	 ÅYhttps://www.roblox.com/games/3304271316/prtty-much-evry-bordr-gam-evrprtty much evry bordr gam evr - RobloxK0 o1https://www.roblox.com/games/3145029148/1011011x11011011x1 - Robloxx/	 Å_https://www.roblox.com/games/2898054563/Count-the-sand-grain-simulator"Count the sand grain" simulator - RobloxU 1                                             Åj-	 ÉIhttps://www.etsy.com/listing/526750909/claws-encounter-t-shirt?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=bubsy&ref=sr_gallery-1-8&organic_search_click=1&col=1Claws Encounter T-shirt | EtsyÅ	,	 Å%uhttps://www.deviantart.com/darkchapel666/art/Human-Killing-Machine-583807598Human Killing Machine by darkchapel666 on DeviantArtÅ+
+ Å!Åhttps://web.archive.org/web/20140702105139/http://nesworld.com/aeces94.phpNESWORLD.COM - ACTIVE ENTERPRISES AT CONSUMER ELECTRONIC SHOW '94j*	 Å-/https://web.archive.org/web/20090205172219/http://cheetahmen.silius.net/agm.htmlCheetahmen CornerÏ A                                                             T( Ochttps://twitter.com/ritter_rebornRitter Le Fennec (@ritter_reborn) | Twitter   V                                                                                  W% G]https://twitter.com/WelfzFursWelfz Twingo Furs (@WelfzFurs) | Twitter í .˝I€™X¡c$ Kshttps://twitter.com/KatzenkompfKatz (V busy for a while!) (@Katzenkompf) | Twitter .¯$àg;·2pî  )
+   Åq Ò‚”ƒµ¶óàyj[L=.Ú„‘≈∂ßòâzk\M>/ Û‰’∆∑®ôä{l]N?0!ÙÂ÷«∏©öã|m^O@1"ıÊ◊»π™õå}n_PA2#
+ˆ
+Á
+ÿ
+…
+∫
+´
+ú
+ç
+~
+o
+`
+Q
+B
+3
+$
+
+	˜	Ë	Ÿ	 	ª	¨	ù	é		p	a	R	C	4	%		¯È⁄Àº≠ûèÄq                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .˝L ±2ƒ .˝L
+Ã
+$2√ .˝L
+Ã
+$2¬ .˝L
+Ã
+$2¡ .˝Kjé¡π2¿ .˝KjëÂ2ø .˝Kjîo2æ .˝J¸Êa2Ω .˝Jÿ,HÉ2º .˝J÷œ‚˙2ª .˝J÷®"π2∫ .˝J÷®"π2π .˝J÷ôKD2∏ .˝J‘¯éŒ2∑ .˝JÕ-±2∂ .˝JÕ)ÂÂ2µ .˝J≤É‘2¥ .˝JZJe•2≥ .˝JZF©·2≤ .˝JUí2± .˝Iﬂ¨¯u2∞ .˝IﬁÈ®ø2Ø .˝Iﬁ°≥á2Æ .˝Iﬁ°¢Û2≠ .˝Iﬁ°CG2¨ .˝I€™X¡2´ .˝I€JÊÊ2™ .˝I⁄”ıe2© .˝I⁄ØñÚ2® .˝I⁄ØñÚ2ß .˝I⁄H|Ô2¶ .˝IÿÍg•2• .˝IÿÁÎ2§ .˝IçNí°2£ .˝IàR∫÷2¢ .˝Ià7gP2° .˝Iàî{2† .˝IÑj©f2ü .˝IÅ¡Ck2û .˝IÅ¡62ù .˝IÅ¿Îi2ú .˝IQá!ß2õ .˝INƒΩ2ö .˝IMÚ—Ú2ô .˝IM∫˘Y2ò .˝IMw:à2ó .˝IMw,2ñ .˝IMv∆2ï .˝I/¨πé2î .˝I/¶5≈2ì .˝I/:µÇ2í .˝I. U2ë .˝I-Œ2ê .˝I-W∏ 2è .˝I,€SŸ2é .˝I,€SŸ2ç .˝I,€SŸ2å .˝@EHTi2ã .˝@C`ë2ä .˝@5±õ2â .˝@5¨ﬁˆ2à .˝@5&‡2á .˝@5ˆt2Ü .˝@4º–S2Ö .˝@4cÛc2Ñ .˝@4ª˜2É .˝@$¯…‚2Ç .˝@$ÙëÛ2Å .˝@$„É2Ä .˝@$îù§2 .˝@$ã_S2~ .˝@È'2} .˝@ﬁe%2| .˝@¶ï2{ .˝@∏¬◊2z .˝?Ùv	Å2y .˝?Ût2Q2x .˝?ÛOã2w .˝?Ûà2v .˝?Ë ã£2u .˝?Ë£ÿ2t .˝?Ê_À∏2s .˝?Â~‹Y2r .˝?Âz±*2q .˝?Âq°À2p .˝?Âeí˘2o .˝?Ÿ˘éù2n .˝?ÿPxÅ2m .˝?”C\(2l .˝?~ „∫2k .˝?{˝(å2j .˝?{§Ió2i .˝?y%%#2h .˝?y%á2g .˝?y$·Ñ2f .˝?xµ52e .˝?x±Ä-2d .˝?UÄæ’2c .˝?UyeE2b .˝?2≥«j2a .˝?1ˇ[å2` .˝?1˚òÀ2_ .˝?.”‡j2^ .˝>Ìπ´¨2] .˝>Ì}2\ .˝>Î·¡?2[ .˝>Î·õ£2Z .˝>Î·r2Y .˝>ÎæZÂ2X .˝>€?02W .˝>€/Ωä2V .˝>€'$∆2U .˝>€ƒ&2T .˝>œ4J.2S .˝>ŒÒÌﬂ2R .˝>Œ‰„˙2Q .˝>ŒÌø2P .˝>ÕèÇé2O .˝>≈⁄Ê?2N .˝>ƒò>Q2M .˝>ƒîõ«2L .˝>°yI)2K .˝>°2√˜2J .˝>†™¬+2I .˝>†bã$2H .˝>†bx`2G .˝>†b'K2F .˝>Q,h2E .˝>QüÄ2D2pêo  
+ˇ[dóêâÇ›÷œ»¡∫≥¨•û·⁄”Ã≈æ∑∞©¢õîçÜxqjc\UNG@92+$˙ÛÏÂ©¢õîçÜxqjc\UNG@92+$yrkd¯ÒÍ£úïÑKD=6/(!˛˜È‚€‘∏∆ø±Õ}vohaZSé	U	N	G	@		2	+	$				˙ÛÏÂﬁ◊–…6ª¥≠òüëäÉ|unD`YR=/(Kg¶¬	9
+¸ıÓ~‡ŸΩÀƒ∂Ø®°öìåÖwpiT[MF?81*LB8.$¸ÚËﬁ‘ ¿∂¨¢òéÑzpf\RH>4* ¯Ó‰⁄–∆º≤®ûîäÄvlbXND:0&˛ÙÍ‡÷Ã¬∏Æ§öêÜ|rh^TJ@6,"˙Ê‹“»æ¥™†ñåÇxndZPF<2(
+ 
+ˆ
+Ï
+‚
+ÿ
+Œ
+ƒ
+∫
+∞
+¶
+ú
+í
+à
+~
+t
+j
+`
+V
+L
+B
+8
+.
+$
+
+
+	¸	Ú	Ë	ﬁ	‘	 	¿	∂	¨	¢	ò	é	Ñ	z	p	f	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\	\                                                                                                                 
+      v2222  1‘1”1“1—1ﬁ1›1‹1€1⁄1Ÿ1ÿ1◊1÷1’22222 1ˇ1˛1˝1¸1˚1˙1˘1¯1˜1ˆ1ı1Ù1Û1Ú1Ò11Ô1Ó1Ì1Ï1Î1Í1È1Á1Ê1Â1‰1„1‚1·1‡1ﬂˇ2#2"2!™   2'2$2    2222222222222222
+2	22222F2C2E2D2G2?2>2=2<2;2827262524232221202/2.2-2,2R2Q2L2K2J2I2H2+& 2S2*2)2(b Ä                                                                                                                            2ƒ2¡2¿2ø2æ2º2∑2∏“    2µ2≤2±2õ2∞2Ø2Æ2≠2¨2ß2§2£2û2†2üÁ    2ù2úV    2ö2ô2ò2ó2ñ2ï2í2ëK2ã2ä2k2â2Ö2å2à2á2Ü2è2Ñ2É2Ä2~2|2z2x2y2ê2v2s2o2ì2j2i2h2g2f2d2c2b2_2^2]2\2X2[2Z2Y2î2W2V2U2T	 ¢O ¢R	 ¢L ¢M	 ¢K ¢L	 ¢I ¢N	 ¢I ¢K	 ¢B ¢f	 ¢A ¢B
