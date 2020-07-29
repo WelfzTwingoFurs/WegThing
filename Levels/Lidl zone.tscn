@@ -29,7 +29,7 @@ tile_data = PoolIntArray( -851974, 0, 0, -851973, 0, 0, -786437, 0, 0, -655366, 
 
 [node name="dude3" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
-position = Vector2( 167, 136 )
+position = Vector2( 102, 426 )
 
 [node name="PauseMenu" parent="dude3" instance=ExtResource( 4 )]
 visible = false
@@ -38,7 +38,7 @@ visible = false
 position = Vector2( -81, 445 )
 
 [node name="Hadger" parent="." instance=ExtResource( 6 )]
-position = Vector2( -65, 352 )
+position = Vector2( -17, 354 )
 scale = Vector2( 1.02139, 1.02325 )
 
 [node name="LadderArea" parent="." instance=ExtResource( 7 )]
