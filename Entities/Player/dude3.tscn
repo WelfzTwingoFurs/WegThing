@@ -104,6 +104,8 @@ func changeskin(skinname):
 
 
 func _ready():
+	$KickArea/KickCol.disabled = true
+	$KickArea/KickLowCol.disabled = true
 	$HUD/Life.visible = 1
 	
 	ladder = 0
@@ -113,13 +115,13 @@ func _ready():
 
 	if CoolFaceMcJohn == 2: ## EVERYTHING ##
 		$Blinking.play(\"Blink2\")
-		$Sprite.texture =  load(\"res://Graphics/Welfz/Default/Animated/WFZSprites_Faceless.png\")
+		$Sprite.texture = load(\"res://Graphics/Welfz/Default/Animated/WFZSprites_Faceless.png\")
 		$Sprite/SpriteMouth.visible = true
 		$Sprite/SpriteEye.visible = true
 
 	if CoolFaceMcJohn == 3: ## Just Mouth ##
 		$Blinking.play(\"Blink\")
-		$Sprite.texture =  load(\"res://Graphics/Welfz/Default/Animated/WFZSprites_Mouthless.png\")
+		$Sprite.texture = load(\"res://Graphics/Welfz/Default/Animated/WFZSprites_Mouthless.png\")
 		$Sprite/SpriteMouth.visible = true
 		$Sprite/SpriteEye.visible = true
 
@@ -191,7 +193,10 @@ func _physics_process(delta):
 
 
 	if Input.is_action_just_pressed(\"wfz_cheat\"):
-		health = 9999
+		$BlinkyTime.start()
+		max_health = 9999
+		_set_health(9999)
+		emit_signal(\"health_updated\", health)
 		red = 9999
 		yellow = 9999
 		redkey = 1
@@ -3206,7 +3211,6 @@ extents = Vector2( 15.6397, 10.6708 )
 z_index = 100
 collision_layer = 4
 script = SubResource( 1 )
-ouch = 1
 state = 1
 haveairkicked = 1
 
@@ -3256,6 +3260,7 @@ wait_time = 1.3
 one_shot = true
 
 [node name="SpriteKickEfx" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 21, 0 )
 texture = ExtResource( 1 )
@@ -3268,7 +3273,6 @@ light_mask = 0
 texture = ExtResource( 2 )
 vframes = 12
 hframes = 10
-frame = 101
 
 [node name="SpriteEye" type="Sprite" parent="Sprite"]
 visible = false
@@ -3282,7 +3286,6 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 12
 hframes = 10
-frame = 17
 script = ExtResource( 6 )
 
 [node name="DefaultCol" type="CollisionShape2D" parent="."]
@@ -3336,10 +3339,12 @@ __meta__ = {
 position = Vector2( 17, -4 )
 rotation = 1.5708
 shape = SubResource( 36 )
+disabled = true
 
 [node name="KickLowCol" type="CollisionShape2D" parent="KickArea"]
 position = Vector2( 17, 12.634 )
 shape = SubResource( 37 )
+disabled = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

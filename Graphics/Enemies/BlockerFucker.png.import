@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CellGuy2.png-4697b79c7f4bd47e7ac460ccae5e14a2.stex"
+path="res://.import/BlockerFucker.png-4352116331182bf063a9b8ede9ab685f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Enemies/CellGuy2.png"
-dest_files=[ "res://.import/CellGuy2.png-4697b79c7f4bd47e7ac460ccae5e14a2.stex" ]
+source_file="res://Graphics/Enemies/BlockerFucker.png"
+dest_files=[ "res://.import/BlockerFucker.png-4352116331182bf063a9b8ede9ab685f.stex" ]
 
 [params]
 

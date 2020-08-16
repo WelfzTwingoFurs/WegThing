@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CellGuy1.png-1dc8c0654d86a741a7db5d86f8f3287b.stex"
+path="res://.import/LongLizzy.png-a9c6c8f1f056a6cf8d97fbb27f940131.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Enemies/CellGuy1.png"
-dest_files=[ "res://.import/CellGuy1.png-1dc8c0654d86a741a7db5d86f8f3287b.stex" ]
+source_file="res://Graphics/Enemies/LongLizzy.png"
+dest_files=[ "res://.import/LongLizzy.png-a9c6c8f1f056a6cf8d97fbb27f940131.stex" ]
 
 [params]
 

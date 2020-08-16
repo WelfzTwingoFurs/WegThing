@@ -13,6 +13,8 @@ onready var time = $Timer
 
 var player_projectile = false
 
+var mother
+
 func _ready():
 	$LazerArea/LazerCol.disabled = false
 	$CollisionShape2D.disabled = true

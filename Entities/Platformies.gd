@@ -5,6 +5,7 @@ var dumbass = 0
 
 func _ready():
 	set_as_toplevel(true)
+	wherehim = 0
 
 func _physics_process(delta):
 

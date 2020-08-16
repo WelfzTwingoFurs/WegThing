@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Entities/Enemies/CellGuyClone.gd" type="Script" id=1]
-[ext_resource path="res://Graphics/Enemies/CellGuy1.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Enemies/CellGuy.png" type="Texture" id=2]
 [ext_resource path="res://Sound/PHs/bustmetal1.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sound/SFX/Sound/shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sound/PHs/pl_step2.wav" type="AudioStream" id=5]
@@ -412,8 +412,8 @@ height = 10.7989
 radius = 13.5243
 
 [node name="CellGuyClone" type="KinematicBody2D" groups=[
-"enemy",
 "bouncy",
+"enemy",
 ]]
 position = Vector2( -0.257027, 0 )
 z_index = 10
@@ -430,6 +430,7 @@ enabled = true
 collision_mask = 5
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.498039 )
 texture = ExtResource( 2 )
 hframes = 4
 frame = 3

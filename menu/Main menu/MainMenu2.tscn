@@ -55,6 +55,7 @@ a big
 monitor!"
 
 [node name="GRAFX" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( -1, 4.46638e-006 )
 
 [node name="Background3" type="Sprite" parent="GRAFX"]
@@ -98,7 +99,7 @@ ENTER - Select level"
 align = 2
 
 [node name="Welcome" type="Sprite" parent="GRAFX"]
-position = Vector2( 2, -103.068 )
+position = Vector2( 63, -103.068 )
 texture = ExtResource( 3 )
 
 [node name="TTest" type="Label" parent="GRAFX"]
@@ -171,36 +172,74 @@ position = Vector2( 172.998, -272.001 )
 shape = SubResource( 3 )
 
 [node name="ThisThing" parent="." instance=ExtResource( 8 )]
-position = Vector2( -193, -65.9991 )
-scale = Vector2( 3.32, 2.08 )
+position = Vector2( -195, -64.9991 )
+scale = Vector2( 2.5, 1.5 )
 thisscene = "res://Levels/This thing.tscn"
 
 [node name="Level2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -125, -65.9996 )
-scale = Vector2( 3.32, 2.08 )
+scale = Vector2( 2.5, 1.5 )
 thisscene = "res://Levels/Level 2.tscn"
 
+[node name="Level3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -57, -66.0001 )
+scale = Vector2( 2.5, 1.5 )
+thisscene = "res://Levels/Lidl zone.tscn"
+
 [node name="Level1" parent="." instance=ExtResource( 8 )]
-position = Vector2( -193, 2.00089 )
-scale = Vector2( 3.32, 2.08 )
+position = Vector2( -194, 3.0009 )
+scale = Vector2( 2.5, 1.5 )
 thisscene = "res://Levels/Level 1.tscn"
 
 [node name="Factory" parent="." instance=ExtResource( 8 )]
 position = Vector2( -125, 2.0004 )
-scale = Vector2( 3.32, 2.08 )
+scale = Vector2( 2.5, 1.5 )
 thisscene = "res://Levels/Factory.tscn"
 
+[node name="Factory2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -57, 1.99992 )
+scale = Vector2( 2.5, 1.5 )
+thisscene = "res://Levels/Factory2.tscn"
+
 [node name="George1" parent="." instance=ExtResource( 8 )]
-position = Vector2( -193, 70.0009 )
-scale = Vector2( 3.32, 2.08 )
+position = Vector2( -195, 71.0009 )
+scale = Vector2( 2.5, 1.5 )
 thisscene = "res://Levels/Georgesturn/Georgesturn1.tscn"
 
 [node name="George2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -125, 70.0004 )
-scale = Vector2( 3.32, 2.08 )
+scale = Vector2( 2.5, 1.5 )
 thisscene = "res://Levels/Georgesturn/Georgesturn2.tscn"
 
 [node name="George3" parent="." instance=ExtResource( 8 )]
-position = Vector2( -54.9999, 69.9999 )
-scale = Vector2( 3.32, 2.08 )
+position = Vector2( -56.9999, 69.9999 )
+scale = Vector2( 2.5, 1.5 )
 thisscene = "res://Levels/Georgesturn/Georgesturn3.tscn"
+
+[node name="3D Space" type="Label" parent="."]
+modulate = Color( 1, 0, 1, 1 )
+margin_left = -19.0003
+margin_top = -71.9999
+margin_right = 211.0
+margin_bottom = -40.9999
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "3D Space"
+
+[node name="3D SpaceMAP" parent="." instance=ExtResource( 8 )]
+position = Vector2( 10.9997, -65.0001 )
+scale = Vector2( 2.88762, 0.627961 )
+thisscene = "res://Test/Space.tscn"
+
+[node name="City" type="Label" parent="."]
+modulate = Color( 1, 0, 1, 1 )
+margin_left = -19.0002
+margin_top = -54.9999
+margin_right = 211.0
+margin_bottom = -23.9999
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "City"
+
+[node name="CityMap" parent="." instance=ExtResource( 8 )]
+position = Vector2( -6.00019, -47.9999 )
+scale = Vector2( 1.18, 0.58 )
+thisscene = "res://Levels/City.tscn"

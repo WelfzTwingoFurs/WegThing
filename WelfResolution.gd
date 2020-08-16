@@ -2,6 +2,12 @@ extends Node
 
 var player
 
+var view
+
+var inside
+
+var lanimationplayer
+
 var resolutionx = 480
 var resolutiony = 279
 
@@ -13,6 +19,7 @@ var WindowY = OS.window_size.y
 func _ready():
 	OS.window_size.x = resolutionx
 	OS.window_size.y = resolutiony
+	inside = 0
 
 func _process(delta):
 	WindowX = OS.window_size.x

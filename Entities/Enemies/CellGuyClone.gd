@@ -97,7 +97,7 @@ onready var SeeEmCast = $SeeEmCast
 func WalkFoward():
 	$HoleRay.position.x = -2.328
 	$WallRay.position.x = 10
-	$Sprite.texture = load("res://Graphics/Enemies/CellGuy1.png")
+	$Sprite.texture = load("res://Graphics/Enemies/CellGuy.png")
 	
 	if $HoleRay.is_colliding():
 		motion.x = SPEED
@@ -107,7 +107,7 @@ func WalkFoward():
 func WalkBack():
 	$HoleRay.position.x = 2.328
 	$WallRay.position.x = -10
-	$Sprite.texture = load("res://Graphics/Enemies/CellGuy2.png")
+	$Sprite.texture = load("res://Graphics/Enemies/CellGuy.png")
 	if $HoleRay.is_colliding():
 		motion.x = -SPEED
 	elif !$HoleRay.is_colliding() or $WallRay.is_colliding():
