@@ -26,19 +26,19 @@ func _physics_process(delta):
 #	print("PLAYER ANGLE:",angle)
 
 func idle():
-	if Input.is_action_pressed("wfz_moveright"):
+	if Input.is_action_pressed("ui_right"):
 		self.rotation_degrees += 1
-	elif Input.is_action_pressed("wfz_moveleft"):
+	elif Input.is_action_pressed("ui_left"):
 		self.rotation_degrees -= 1
 
 	
-	if Input.is_action_pressed("wfz_jump"):
+	if Input.is_action_pressed("wfz_moveup"):
 		position.y -= 1
-	if Input.is_action_pressed("wfz_slide"):
+	if Input.is_action_pressed("wfz_movedown"):
 		position.y += 1
-	if Input.is_action_pressed("wfz_kick"):
+	if Input.is_action_pressed("wfz_moveright"):
 		position.x += 1
-	if Input.is_action_pressed("wfz_weapon"):
+	if Input.is_action_pressed("wfz_moveleft"):
 		position.x -= 1
 
 var damagearr = []

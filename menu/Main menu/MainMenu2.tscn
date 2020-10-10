@@ -55,7 +55,6 @@ a big
 monitor!"
 
 [node name="GRAFX" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( -1, 4.46638e-006 )
 
 [node name="Background3" type="Sprite" parent="GRAFX"]
@@ -143,6 +142,60 @@ text = "George's Turn; joke campaign"
 position = Vector2( -124, 70.0006 )
 texture = ExtResource( 6 )
 
+[node name="3D Space" type="Label" parent="GRAFX"]
+modulate = Color( 1, 0, 1, 1 )
+margin_left = -18.0003
+margin_top = -71.9999
+margin_right = 212.0
+margin_bottom = -40.9999
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "3D Space"
+
+[node name="City" type="Label" parent="GRAFX"]
+modulate = Color( 1, 0, 1, 1 )
+margin_left = -18.0002
+margin_top = -54.9999
+margin_right = 212.0
+margin_bottom = -23.9999
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "City"
+
+[node name="strider" type="Label" parent="GRAFX"]
+modulate = Color( 1, 0, 1, 1 )
+margin_left = 40.9998
+margin_top = -55.0002
+margin_right = 271.0
+margin_bottom = -24.0002
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "strider"
+
+[node name="Badgang" type="Label" parent="GRAFX"]
+modulate = Color( 1, 0, 1, 1 )
+margin_left = -18.0001
+margin_top = -37.9999
+margin_right = 212.0
+margin_bottom = -6.9999
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Badgang"
+
+[node name="Forst" type="Label" parent="GRAFX"]
+modulate = Color( 1, 1, 0, 1 )
+margin_left = -18.0
+margin_top = -12.9999
+margin_right = 212.0
+margin_bottom = 18.0001
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Forst"
+
+[node name="street2" type="Label" parent="GRAFX"]
+modulate = Color( 1, 1, 0, 1 )
+margin_left = -17.9999
+margin_top = 11.0001
+margin_right = 212.0
+margin_bottom = 42.0001
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "street2"
+
 [node name="Background2" type="Sprite" parent="GRAFX"]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -2.99985, 34 )
@@ -152,7 +205,6 @@ texture = ExtResource( 2 )
 position = Vector2( -172.999, 121.001 )
 
 [node name="WALLS" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -172.999, 122.001 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS"]
@@ -216,30 +268,32 @@ position = Vector2( -56.9999, 69.9999 )
 scale = Vector2( 2.5, 1.5 )
 thisscene = "res://Levels/Georgesturn/Georgesturn3.tscn"
 
-[node name="3D Space" type="Label" parent="."]
-modulate = Color( 1, 0, 1, 1 )
-margin_left = -19.0003
-margin_top = -71.9999
-margin_right = 211.0
-margin_bottom = -40.9999
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "3D Space"
-
 [node name="3D SpaceMAP" parent="." instance=ExtResource( 8 )]
 position = Vector2( 10.9997, -65.0001 )
 scale = Vector2( 2.88762, 0.627961 )
 thisscene = "res://Test/Space.tscn"
 
-[node name="City" type="Label" parent="."]
-modulate = Color( 1, 0, 1, 1 )
-margin_left = -19.0002
-margin_top = -54.9999
-margin_right = 211.0
-margin_bottom = -23.9999
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "City"
-
 [node name="CityMap" parent="." instance=ExtResource( 8 )]
 position = Vector2( -6.00019, -47.9999 )
 scale = Vector2( 1.18, 0.58 )
 thisscene = "res://Levels/City.tscn"
+
+[node name="BadgangMap" parent="." instance=ExtResource( 8 )]
+position = Vector2( 7.99985, -31.0002 )
+scale = Vector2( 2.54, 0.659999 )
+thisscene = "res://Levels/Badgang.tscn"
+
+[node name="StriderMAP" parent="." instance=ExtResource( 8 )]
+position = Vector2( 60.9998, -49.0005 )
+scale = Vector2( 2.14, 0.58 )
+thisscene = "res://Levels/strider.tscn"
+
+[node name="ForstMAP" parent="." instance=ExtResource( 8 )]
+position = Vector2( -3.0001, -5.99993 )
+scale = Vector2( 1.58, 0.58 )
+thisscene = "res://Levels/Forst.tscn"
+
+[node name="StreetMAP" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4.99995, 17 )
+scale = Vector2( 2.22, 0.58 )
+thisscene = "res://Levels/street2.tscn"

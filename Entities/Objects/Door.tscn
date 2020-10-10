@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Entities/Objects/Door.gd" type="Script" id=1]
-[ext_resource path="res://Graphics/More graphics/gamerdoor.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/More graphics/gamerbigdoor.png" type="Texture" id=2]
 [ext_resource path="res://Sound/doorclose.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sound/dooropen1.wav" type="AudioStream" id=4]
 
@@ -304,9 +304,9 @@ extents = Vector2( 2.5015, 15.7329 )
 z_index = -10
 collision_mask = 15
 script = ExtResource( 1 )
+opening = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 0.0
 anims/CloseL = SubResource( 1 )
 anims/CloseR = SubResource( 2 )
 anims/OpenL = SubResource( 3 )
@@ -316,6 +316,7 @@ anims/OpenR = SubResource( 4 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 5
+frame = 5
 
 [node name="DudeArea" type="Area2D" parent="."]
 position = Vector2( -0.52607, 4.00897 )

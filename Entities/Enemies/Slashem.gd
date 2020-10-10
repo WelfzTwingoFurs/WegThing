@@ -14,7 +14,6 @@ var damagearr = []
 var target_direction = -1
 var target_height = 0
 
-onready var losttime = $LostTimer
 var dumbvar = 0
 
 enum STATES {IDLE, WALKING, TAKE_DAMAGE, DEFEATED, SWING, GETUP, DIEALREADY}
@@ -183,7 +182,7 @@ func slashem():
 					$AnimationPlayer.play("Draw")
 
 			elif !body.is_in_group("player"):
-				if Isaw == 1 && is_on_floor():
+				if Isaw == 1 && is_on_floor() && ouch != 1:
 					$GiveUpTimer.play("LIDLBrandTimer")
 
 	if Isaw == 1:
@@ -222,10 +221,16 @@ func slashem():
 			if $WallRay.is_colliding() == true:# && player.position.y < position.y:
 				$AnimationPlayer.play("GonnaJump")
 
-			if $HoleRay.is_colliding() == false && player.position.y < position.y:
-				$AnimationPlayer.play("GonnaJump")
-			elif player.position.y > position.y:
-				pass
+#			if $HoleRay.is_colliding() == false && player.position.y < position.y:
+#				$AnimationPlayer.play("GonnaJump")
+#			elif player.position.y > position.y:
+#				pass
+
+			if $HoleRay.is_colliding() == false:
+				if player.position.y < position.y:
+					$AnimationPlayer.play("GonnaJump")
+				elif player.position.y > position.y:
+					pass
 
 			if $LedgeRay.is_colliding() == true && player.position.y < position.y:
 				$AnimationPlayer.play("GonnaJump")
@@ -294,21 +299,22 @@ export var ouch = 0
 
 func take_damage(damage, playerdirection, source, knock, type):
 	#ouch = 1
+	var ouch2 = 0
 	busy = 1
 	change_state(STATES.TAKE_DAMAGE)
 
 	if health > 0 && ouch != 1:
 		_set_health(health - damage)
-		if type == "blue":
-			ouch = 1
-			motion.y = (KNOCKBACKY)
-			motion.x = sign((self.position.x - source.position.x)) * knock * 2
-			direction = sign((self.position.x - source.position.x)) * -1
-			#change_state(STATES.GETUP)
-			$AnimationPlayer.play("HitFirst")
-			###Animation changes state to hurt()###
+#		if type == "blue":
+#			ouch = 1
+#			motion.y = (KNOCKBACKY)
+#			motion.x = sign((self.position.x - source.position.x)) * knock * 2
+#			direction = sign((self.position.x - source.position.x)) * -1
+#			#change_state(STATES.GETUP)
+#			$AnimationPlayer.play("HitFirst")
+#			###Animation changes state to hurt()###
 
-		elif type == "red":
+		if type == "red":
 			change_state(STATES.TAKE_DAMAGE)
 			change_state(STATES.WALKING)
 			motion.y = (KNOCKBACKY)
@@ -323,14 +329,21 @@ func take_damage(damage, playerdirection, source, knock, type):
 			$HitEmArea/HitEmCol.disabled = true
 
 		else:
+			ouch2 = 1
+			ouch = 1
 			motion.y = (KNOCKBACKY)
-			motion.x = sign((self.position.x - source.position.x)) * knock
+			motion.x = sign((self.position.x - source.position.x)) * knock * 2
 			direction = sign((self.position.x - source.position.x)) * -1
+			#change_state(STATES.GETUP)
 			$AnimationPlayer.play("HitFirst")
+#			motion.y = (KNOCKBACKY)
+#			motion.x = sign((self.position.x - source.position.x)) * knock
+#			direction = sign((self.position.x - source.position.x)) * -1
+#			$AnimationPlayer.play("HitFirst")
 			#change_state(STATES.GETUP)
 
-	elif ouch == 1:
-		pass
+	elif ouch2 == 1:
+		change_state(STATES.WALKING)
 
 	if health <= 0:
 		#make kaboom here, animation later whatever
@@ -398,9 +411,12 @@ func _on_SwordArea_body_exited(body):
 
 const kaboom = preload("res://Entities/Effects/Explod.tscn")
 func kaboom():
-	var kaboominstance = kaboom.instance()
-	kaboominstance.position = (position+Vector2(0,18))
-	get_parent().add_child(kaboominstance)
+	var ave = 0
+	if ave == 0:
+		ave = 1
+		var kaboominstance = kaboom.instance()
+		kaboominstance.position = (position+Vector2(0,18))
+		get_parent().add_child(kaboominstance)
 
 const body = preload("res://Entities/Body.tscn")
 func body():

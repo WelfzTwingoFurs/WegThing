@@ -164,6 +164,6 @@ func item():
 	var iteminstance = item.instance()
 	iteminstance.position = (position+Vector2(0,15))
 	iteminstance.direction = direction
-	iteminstance.whoamI = "2turret"
+	iteminstance.whoamI = "elecgen"
 	get_parent().add_child(iteminstance)
 	

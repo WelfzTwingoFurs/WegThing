@@ -13,13 +13,16 @@ onready var time = $Timer
 
 var player_projectile = false
 
-var mother
+var motherX
+var motherY
 
 func _ready():
 	$LazerArea/LazerCol.disabled = false
 	$CollisionShape2D.disabled = true
 	time.start()
 	$AnimationPlayer.play("idle")
+	#motherX = position.x
+	#motherY = position.y
 
 func _physics_process(delta):
 #	$AnimationPlayer.playback_speed = abs(motion.x)
@@ -28,6 +31,7 @@ func _physics_process(delta):
 	if time.is_stopped():
 		$CollisionShape2D.disabled = false
 		$LazerArea/LazerCol.disabled = false
+	
 	var playerXdistance = position.x - player.position.x
 	var playerYdistance = position.y - player.position.y
 
@@ -43,6 +47,7 @@ func _physics_process(delta):
 
 	for body in damagearr:
 		body.take_damage(20, direction*knockback)
+		$LazerArea/LazerCol.disabled = true
 
 	motion.x += speed * direction
 	if time.is_stopped():
@@ -67,6 +72,7 @@ func _physics_process(delta):
 
 #########AAAAAAAAAAAA#########
 func regularbehaviorofalazerbeamshot():
+	$LazerArea/LazerCol.disabled = true
 	speed = 0
 	motion.x = 0
 	if direction == 1:
@@ -86,11 +92,13 @@ func _on_LazerArea_body_entered(body):
 		if body.is_in_group("enemy"):
 			var knock = 0
 			var playerdirection = direction
-			body.take_damage(25, playerdirection, self, knock, "red")
+			body.take_damage(20, playerdirection, self, knock, "red")
+			$LazerArea/LazerCol.disabled = true
 	else:
 		if body.is_in_group("player"):
 			var type = "red"
 			body.take_damage(20, direction*0, type)
+			$LazerArea/LazerCol.disabled = true
 
 
 

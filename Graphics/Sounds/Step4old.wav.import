@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Step4old.wav-46a3be65b50d60e3f105d5a8cff888e9.sample"
+
+[deps]
+
+source_file="res://Graphics/Sounds/Step4old.wav"
+dest_files=[ "res://.import/Step4old.wav-46a3be65b50d60e3f105d5a8cff888e9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

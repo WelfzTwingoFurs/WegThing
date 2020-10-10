@@ -1047,8 +1047,8 @@ height = 10.7989
 radius = 13.5243
 
 [node name="Shootyalater" type="KinematicBody2D" groups=[
-"bouncy",
 "enemy",
+"bouncy",
 ]]
 position = Vector2( -0.257027, 0 )
 z_index = 10
@@ -1063,6 +1063,7 @@ one_shot = true
 
 [node name="SeeEmCast" type="RayCast2D" parent="."]
 position = Vector2( -2, 1 )
+z_index = -1
 enabled = true
 collision_mask = 5
 
@@ -1095,21 +1096,25 @@ anims/WalkBack = SubResource( 11 )
 
 [node name="HoleRay" type="RayCast2D" parent="."]
 position = Vector2( -2, 20.949 )
+z_index = -1
 enabled = true
 cast_to = Vector2( 0, 1 )
 
 [node name="WallRay" type="RayCast2D" parent="."]
 position = Vector2( -10.672, 5.949 )
+z_index = -1
 enabled = true
 cast_to = Vector2( 0, 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2, 5 )
+z_index = -1
 shape = SubResource( 12 )
 
 [node name="HitEmArea" type="Area2D" parent="."]
 visible = false
 position = Vector2( -558.147, -34.6389 )
+z_index = -1
 
 [node name="HitEmCol" type="CollisionShape2D" parent="HitEmArea"]
 position = Vector2( 556.468, 41.9923 )
@@ -1118,6 +1123,7 @@ disabled = true
 
 [node name="HitArea" type="Area2D" parent="."]
 visible = false
+z_index = -1
 
 [node name="HurtBox" type="CollisionShape2D" parent="HitArea"]
 position = Vector2( -1.85114, 7.40458 )

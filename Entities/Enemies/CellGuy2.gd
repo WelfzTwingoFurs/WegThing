@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const UP = Vector2(0, -1)
 const GRAVITY = 15
-const SPEED = 167
+const SPEED = 150
 const MAX_SPEED = 167
 const KNOCKBACK = 1010
 const KNOCKBACKY = -185

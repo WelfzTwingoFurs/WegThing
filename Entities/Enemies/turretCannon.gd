@@ -166,11 +166,5 @@ func kaboom():
 	kaboominstance.position = (position+Vector2(0,18))
 	get_parent().add_child(kaboominstance)
 
-const item = preload("res://Entities/Items/ItemDropped.tscn")
 func item():
-	var iteminstance = item.instance()
-	iteminstance.position = (position+Vector2(0,15))
-	iteminstance.direction = direction
-	iteminstance.whoamI = "2turret"
-	get_parent().add_child(iteminstance)
-	
+	pass

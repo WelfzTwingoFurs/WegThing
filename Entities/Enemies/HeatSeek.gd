@@ -18,6 +18,7 @@ func _ready():
 	change_state(STATES.WAITING)
 	$AnimationPlayer.play("notboomies")
 	killturret = 0
+	ImDead = 0
 
 func _physics_process(delta):
 	if is_on_floor() or is_on_wall() or is_on_ceiling():
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	
 	
 	for body in damagearr:
-		var type = "blue"
+		var type = "green"
 		body.take_damage(33, direction, type)
 	
 	motion = move_and_slide(motion, UP)
