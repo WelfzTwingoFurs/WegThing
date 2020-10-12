@@ -3601,6 +3601,5 @@ volume_db = -5.0
 [connection signal="health_updated" from="." to="HUD/Life/LifeBar" method="_on_dude2_health_updated"]
 [connection signal="texture_changed" from="Sprite" to="." method="_on_Sprite_texture_changed"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_DamageArea_body_entered"]
-[connection signal="area_entered" from="KickArea" to="." method="_on_KickArea_area_entered"]
 [connection signal="body_entered" from="KickArea" to="." method="_on_KickArea_body_entered"]
 [connection signal="texture_changed" from="HUD/WpnUI" to="." method="_on_WpnUI_texture_changed"]

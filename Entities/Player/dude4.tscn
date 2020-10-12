@@ -87,10 +87,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	if state == STATES.LOWKICKING:
-		$SpriteKickEfx.position.y = 4
-	else:
-		$SpriteKickEfx.position.y = 0
+#	if state == STATES.LOWKICKING:
+#		$SpriteKickEfx.position.y = 4
+#	else:
+#		$SpriteKickEfx.position.y = 0
 	
 	if ladder == 1 && state == STATES.CLIMB:
 		current_speed.x = 0
